@@ -1,0 +1,138 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div style="background-color: #41B2A3;" class="jumbotron">
+   <h1 style="text-align: center; color: white;">Speakit</h1>
+   <p style="text-align: center; color: white;">A place to talk</p>
+</div>
+
+<div class="row">
+   <div class="col-md-6">
+      <div class="col-md-12">
+         <h2 style="text-align: center; padding-top: 20%; color: #a52400;">Be yourself</h2>
+      </div>
+   </div>
+
+   <div class="col-md-6">
+      <div class="col-md-12 main-img">
+      </div>
+   </div>
+
+</div>
+
+
+<div class="row">
+   <div class="col-md-6">
+      <div class="col-md-12  main-img">
+
+      </div>
+   </div>
+
+   <div class="col-md-6">
+      <div class="col-md-12">
+         <h2 style="text-align: center; padding-top: 20%; color: #E27D60;">Remember to listen to others</h2>
+      </div>
+   </div>
+
+</div>
+
+<div class="alert alert-info" style="margin-top: 1%;">
+   <strong>Info!</strong> Need professional advice? <a href="https://www.nhs.uk/service-search/mental-health/find-a-psychological-therapies-service/" target="_blank" class="alert-link">click me!</a>
+</div>
+
+<div class="well ">
+   <div class="form-group">
+      <label for="email">Create your own chat room!! <br/></label>
+      <input id="room-name-input" type="text" class="form-control" placeholder="Enter here">
+   </div><br/>
+   <button id="room-name-submit" type="button" class="btn btn-default">Submit</button><br>
+</div>
+
+
+<div class="chat-container">
+   <div class="row">
+      <div class="col-md-6 col-chat">
+         <div class="col-md-12 well">
+            <h4 class="chatHead">First time here ?</h4>
+            <a id="link1" href="" class="chat-room-link">Join chat room</a>
+         </div>
+
+      </div>
+      <div class="col-md-6">
+         <div class="col-md-12 well">
+            <h4 class="chatHead">Talk to someone</h4>
+            <a id="link2" href=" " class="chat-room-link">Join chat room</a>
+         </div>
+      </div>
+
+   </div>
+</div><br>
+
+<div class="chat-container">
+   <div class="row">
+      <div class="col-md-6 col-chat">
+         <div class="col-md-12 well">
+            <h4 class="chatHead">Need to rant ?</h4>
+            <a id="link3" href="" class="chat-room-link">Join chat room</a>
+         </div>
+
+      </div>
+      <div class="col-md-6">
+         <div class="col-md-12 well">
+            <h4 class="chatHead">Need to just speak it out ?</h4>
+            <a id="link4" href=" " class="chat-room-link">Join chat room</a>
+         </div>
+      </div>
+
+   </div>
+</div><br>
+
+<div class="chat-container">
+   <div class="row">
+      <div class="col-md-6 col-chat">
+         <div class="col-md-12 well">
+            <h4 class="chatHead">Having a bad day ?</h4>
+            <a id="link5" href="" class="chat-room-link">Join chat room</a>
+         </div>
+
+      </div>
+      <div class="col-md-6">
+         <div class="col-md-12 well">
+            <h4 class="chatHead">Not feeling yourself ? </h4>
+            <a id="link6" href=" " class="chat-room-link">Join chat room</a>
+         </div>
+      </div>
+
+   </div>
+</div><br>
+
+
+<script>
+   document.querySelector('#room-name-input').focus();
+   document.querySelector('#room-name-input').onkeyup = function (e) {
+      if (e.keyCode === 13) {  // enter, return
+         document.querySelector('#room-name-submit').click();
+      }
+   };
+
+   document.querySelector('#room-name-submit').onclick = function (e) {
+      var roomName = document.querySelector('#room-name-input').value;
+      window.location.pathname = '/chat/' + roomName + '/';
+   };
+
+   var link1 = document.getElementById('link1');
+   var link2 = document.getElementById('link2');
+   var link3 = document.getElementById('link3');
+   var link4 = document.getElementById('link4');
+   var link5 = document.getElementById('link5');
+   var link6 = document.getElementById('link6');
+   
+   link1.href =  '/chat/' + 'firstTimeRoom' + '/';
+   link2.href =  '/chat/' + 'talkHereRoom' + '/';
+   link3.href =  '/chat/' + 'rantRoom' + '/';
+   link4.href =  '/chat/' + 'talkItOutRoom' + '/';
+   link5.href =  '/chat/' + 'badDayRoom' + '/';
+   link6.href =  '/chat/' + 'feelingItRoom' + '/';
+</script>
+
+{% endblock %}

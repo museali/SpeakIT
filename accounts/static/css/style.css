@@ -1,0 +1,136 @@
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  .sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #41B2A3;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidebar a:hover {
+    color: #E27D60;
+    text-decoration: none;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  .openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #41B2A3;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    margin-bottom: 5%;
+  }
+  
+  .openbtn:hover {
+    background-color: #E27D60;
+  }
+  .active{
+    color: #E27D60 !important;
+  }
+  #main {
+    transition: margin-lWeft .5s;
+    padding: 16px;
+    margin-left: 250px;
+  }
+
+  .btn, .btn-default{
+    color: #E27D60 !important;
+  }
+
+  .btn:hover, .btn-default:hover{
+    color: #ffffff !important;
+    background-color: #41B2A3;
+    border-color: black;
+  }
+
+  .btn:active, .btn-default:active{
+    color: #ffffff !important;
+    background-color: #41B2A3 !important;
+    border-color: black;
+  }
+
+  .chatRoomImage{
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+
+  .chatHead{
+    font-weight: bolder;
+    color: #ffffff;
+  }
+  .chat-room-link{
+    float: right;
+    color: #ffffff !important;
+  }
+
+  .chat-room-link:hover{
+    color: #E27D60 !important;
+    text-decoration: none !important;
+  }
+
+  .well{
+    background-color: #41B2A3 !important;
+  }
+  .main-img{
+    background-image: url('https://content.thriveglobal.com/wp-content/uploads/2019/08/edu-lauton-TyQ-0lPp6e4-unsplash-1500x715.jpg');
+     /* Full height */
+
+    height: 400px; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+   .profile-info, .profile-info a{
+     color: #ffffff;
+     text-decoration: none;
+   }
+   .profile-info a:hover{
+    text-decoration: none;
+    color: #E27D60;
+   }
+   .form-container form label{
+     color: #ffffff;
+   }
+  /* Turn off parallax scrolling for tablets and phones. Increase the pixels if needed */
+@media only screen and (max-device-width: 1000px) {
+  .main-img {
+    background-attachment: scroll;
+  }
+}
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }

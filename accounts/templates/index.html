@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'script/nav.js' %}"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <img style="width: 150px; height: auto;" src="{% static 'images/logo.png' %}">
+        {% if user.is_authenticated %}
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+        <a href="{% url 'post_page' %}">Post</a>
+        <a href="{% url 'profile_page' %}">Profile</a>
+        <a href="{% url 'logout_user' %}">Logout</a>
+        {% else %}
+        <a href="{% url 'login_user' %}">login</a>
+        <a href="{% url 'register_user' %}">Register</a>
+        {% endif %}
+    </div>
+
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+        {% if messages %}
+        {% for messages in messages %}
+        <div class="alert alert-warning alert-dismissible fade in">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            {{messages }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        {% block content %}
+        <div class="well" style="color:white">
+            <h1>Speakit</h1>
+            <p>Here at Speakit we aim to help users connect with people across the world, by allowing
+                them to share their issues and talk to one another. Which can hopefully help boost
+                self-esteem and give you the right platform to speak about your mental health.</p>
+        </div>
+
+        <!-- Container (Services Section) -->
+        <div class="container-fluid text-center well" style="color:white">
+            <div class="row slideanim">
+                <div class="col-sm-4">
+                    <span style="color:#E27D60" class="glyphicon glyphicon-envelope"></span>
+                    <h4>Chat</h4>
+                    <p>Have a chat with other user</p>
+                </div>
+                <div class="col-sm-4">
+                    <span style="color:#E27D60" class="glyphicon glyphicon-heart"></span>
+                    <h4>LOVE</h4>
+                    <p>Support others and treat them with respect</p>
+                </div>
+                <div class="col-sm-4">
+                    <span style="color:#E27D60" class="glyphicon glyphicon-user"></span>
+                    <h4>Your data matters</h4>
+                    <p>We do not collect unnecessary data</p>
+                </div>
+            </div>
+            <br><br>
+            <div class="row slideanim">
+                <div class="col-sm-4">
+                    <span style="color:#E27D60" class="glyphicon glyphicon-file"></span>
+                    <h4>Post</h4>
+                    <p>Create your own post</p>
+                </div>
+                <div class="col-sm-4">
+                    <span style="color:#E27D60" class="glyphicon glyphicon-volume-up"></span>
+                    <h4>Speakit</h4>
+                    <p>Somewhere you can speak</p>
+                </div>
+                <div class="col-sm-4">
+                    <span style="color:#E27D60" class="glyphicon glyphicon-star"></span>
+                    <h4>Feel better!</h4>
+                    <p>Somewhere you can feel better</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        {% endblock %}
+
+    </div>
+
+</body>
+
+</html>

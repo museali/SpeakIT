@@ -1,0 +1,12 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div class="well">
+    <h1>{{ post.title }}</h1>
+    <small>by: {{ post.author }}</small><br/>
+    <br/>
+    {{post.body}}
+</div>
+<br/><br/>
+<a href="{% url 'post_page' %}">Back</a>
+{% endblock %}

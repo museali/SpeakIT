@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<div>
+    <div class="well profile-info">
+        <p>My Profile</p>
+        <img src="https://t3.ftcdn.net/jpg/03/46/83/96/360_F_346839683_6nAPzbhpSkIpb8pmAwufkC7c5eD7wYws.jpg"
+            class="img-circle" height="65" width="65" alt="Avatar">
+    </div>
+
+    <div class="well profile-info">
+        <p>Name: {{user.first_name}} {{user.last_name}}</p>
+        <p>Username: {{user.username}}</p>
+        <p>Email: {{user.email}}</p>
+    </div>
+
+    <div class="well profile-info">
+        <p><a href="#">Professional help</a></p>
+        <p><a href="#">Privacy & safety</a></p>
+        <p><a href="#">Delete account</a></p>
+    </div>
+
+</div>
+{% endblock %}

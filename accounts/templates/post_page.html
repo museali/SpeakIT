@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<h1>Post something, tell us!!</h1>
+
+<form action="{% url 'add_post' %}">
+   <input class="btn btn-default" type="submit" value="Create a new post" />
+</form><br/>
+
+    {% for post in object_list %}
+      {% if user.is_authenticated %}
+      <div class="well" style="color: white;">
+         <h1>{{ post.author }}</h1>
+         <h3>Title: {{post.title }}</h3>
+         <p>{{ post.body }}</p>
+         {{ post.post_date }}
+            {% if user.id == post.author.id %}
+               <a class="chat-room-link" href="{% url 'update_post' post.pk %}" style="margin: 0 1%;">Edit</a>
+               <a class="chat-room-link" href="{% url 'delete_post' post.pk %}">Delete</a>
+               <br/>
+            {% endif %}
+      </div>
+      {% endif %}   
+    {% endfor %}
+
+ 
+{% endblock %}
